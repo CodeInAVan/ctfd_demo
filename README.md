@@ -86,8 +86,8 @@ docker volume prune
 rmdir .data
 ```
 
-# Install the "Juice Shop". This is a set of hacking challenges which target the OWASP Top 10 vulnerabilities.
-It's the world's most modern yet insecure website!
+# Install the "Juice Shop".
+This is a set of hacking challenges which target the OWASP Top 10 vulnerabilities. It's the world's most modern yet insecure website!
 Reference - https://owasp.org/www-project-juice-shop/
 Reference - https://pwning.owasp-juice.shop/
 Reference - Answers to challenges -> https://www.youtube.com/watch?v=AIUhCdOMrmc
