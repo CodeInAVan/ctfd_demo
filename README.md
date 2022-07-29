@@ -62,9 +62,9 @@ docker-compose up
 > 
 > The result should look like this:
 
-TODO: Add picture
+![Screenshot showing Initial Setup ](/images/setup.png 'Initial Setup')
 
-# Configure the Service
+## Configure the Service
 * Enter an "Event Name" of "Training".
 * For "Mode" choose "User"
 * For "Administration" enter "admin" for the username, "admin@admin.admin" for the email & "admin" for the password.
@@ -104,11 +104,11 @@ docker run --rm -e "NODE_ENV=ctf" -p 3000:3000 bkimminich/juice-shop
 ```
 > Open a browser to http://localhost:3000 to view the site.
 
-# Import the Juice Box Challenge definitions into the ctfd score board system
-
-Reference - https://github.com/juice-shop/juice-shop-ctf
-
-This will provide a menu of different challenges to select from inside the scoreboard system - the only downside the challenges don't have URLs provided :( 
+# Import the Challenge definition
+* This will import the .zip file created previously into the Scoreboard system.
+* It contains the information about all the bugs in the Juice Shop site.
+* Provides a menu of different challenges to select from inside the scoreboard system - the only downside the challenges don't have URLs provided :( 
+* Reference - https://github.com/juice-shop/juice-shop-ctf
 
 ```
 apt-get install -y npm
@@ -123,16 +123,13 @@ juice-shop-cli
 
 > Once completed, you will file a file called "OWASP_Juice_Shop.xxxx-xx-xx.CTFd.zip" in the local folder.
 
+![Screenshot showing generation of config .zip file ](/images/generatezipfile.png 'Challanges .zip file creation')
 
-> Open the browser to the ctfd homepage, then browse to Config ->  Backup -> Import and select .zip file created above.
+* Open the browser to the ctfd homepage, then browse to Config ->  Backup -> Import and select .zip file created above. 
+ 
+* Once the data is imported, you should see the following:
 
-# It looks like this:
-
-TODO: Add image
-
-> Once the data is imported, you should see the following:
-
-TODO: Add image
+![Screenshot showing imported challenged](/images/importedchallenges.png 'Imported challenges')
 
 # References
 * https://docs.ctfd.io/docs/deployment/installation
