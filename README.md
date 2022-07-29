@@ -86,7 +86,7 @@ docker volume prune
 rmdir .data
 ```
 
-# Install the "Juice Shop".
+# Install the "Juice Shop"
 This is a set of hacking challenges which target the OWASP Top 10 vulnerabilities. It's the world's most modern yet insecure website!
 Reference - https://owasp.org/www-project-juice-shop/
 Reference - https://pwning.owasp-juice.shop/
@@ -104,9 +104,10 @@ docker run --rm -e "NODE_ENV=ctf" -p 3000:3000 bkimminich/juice-shop
 ```
 > Open a browser to http://localhost:3000 to view the site.
 
-
 # Import the Juice Box Challenge definitions into the ctfd score board system
+
 Reference - https://github.com/juice-shop/juice-shop-ctf
+
 This will provide a menu of different challenges to select from inside the scoreboard system - the only downside the challenges don't have URLs provided :( 
 
 ```
