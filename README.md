@@ -59,7 +59,7 @@ This will allow you to watch all the output & errors from the containers in real
 ```
 sudo docker-compose up
 ```
-> Wait about 5 minutes as it take time for the various containers to start and for database tables and caches to be initialized and for the nginx proxy to start.
+> Wait about 5 minutes as it takes time for the various containers to start and for database tables and caches to be initialized and for the nginx proxy to start.
 > 
 > Once complete, should now be able to access the Scoreboard service on http://localhost:8000
 > 
