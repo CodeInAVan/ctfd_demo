@@ -81,11 +81,11 @@ sudo docker-compose up
 * As an alternative from another window: `docker-compose down`
 
 ### Reset the application back to this point
-If you ever need to reset the scoreboard environment right back to the beginning, run the following from the "ctfd" directory:
+If you ever need to reset the scoreboard environment right back to the beginning, run the following from the "juiceboxctf" directory:
 ```
-docker-compose down
-docker rm -f $(docker ps -a -q)
-docker volume prune
+sudo docker-compose down
+sudo docker rm -f $(docker ps -a -q)
+sudo docker volume prune
 rmdir .data
 ```
 
