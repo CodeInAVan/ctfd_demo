@@ -3,18 +3,28 @@ There are three steps to installing this application
 1. Install the buggy website that students will attack (aka The Juice Shop Challenges)
 1. Import into the Scoreboard the information about each of the bugs for users to choose a challenge.
 
+* This guide assumes you are instllating into a newly installed Debian based ditro such as Ubuntu.
+* The repository contains both the setup guide (the ReadMe you are reading now) and the actual software for the installation. 
+
+# Clone the Repo to your new Linux box.
+```
+sudo apt-get install git net-tools
+git clone https://github.com/UKNorthernlad/juiceboxctf/
+cd juicebox
+```
+
 # The Scoreboard
 ctfd.io is a platform for keeping the scope for Capture The Flag type events. Once installed you can install separate standalone challenges which run in their own docker containers.
 
 ## Install Required packages and signing keys for Docker
 ```
-apt-get update -y
-apt-get install -y apt-transport-https ca-certificates curl gnupg lsb-release
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+sudo apt-get update -y
+sudo apt-get install -y apt-transport-https ca-certificates curl gnupg lsb-release
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-apt-get update -y
+sudo apt-get update -y
 ```
 
 ## Install Docker & run test container
@@ -23,13 +33,7 @@ apt-get install -y docker-ce docker-ce-cli containerd.io
 docker run hello-world
 ```
 
-## Install Git and other tools
-```
-apt-get install git net-tools
-git clone https://github.com/CTFd/CTFd.git 
-cd ctfd
-docker build .
-```
+
 
 ## Download Docker Compose
 ```
