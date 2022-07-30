@@ -29,16 +29,14 @@ sudo apt-get update -y
 
 ## Install Docker & run test container
 ```
-apt-get install -y docker-ce docker-ce-cli containerd.io
-docker run hello-world
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+sudo docker run hello-world
 ```
-
-
 
 ## Download Docker Compose
 ```
-curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-chmod +x /usr/local/bin/docker-compose
+sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
 ```
 
 ## Pre-pull all the images needed
