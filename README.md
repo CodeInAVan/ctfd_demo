@@ -62,6 +62,8 @@ sudo docker-compose up
 > Wait about 5 minutes as it takes time for the various containers to start and for database tables and caches to be initialized and for the nginx proxy to start.
 > 
 > Once complete, should now be able to access the Scoreboard service on http://localhost:8000
+>
+> Open a browser to http://localhost:3000 to view buggy Juice Shop challenges site.
 > 
 > The result should look like this:
 
@@ -88,24 +90,6 @@ sudo docker rm -f $(docker ps -a -q)
 sudo docker volume prune
 rmdir .data
 ```
-
-# Install the "Juice Shop"
-This is a set of hacking challenges which target the OWASP Top 10 vulnerabilities. It's the world's most modern yet insecure website!
-Reference - https://owasp.org/www-project-juice-shop/
-Reference - https://pwning.owasp-juice.shop/
-Reference - Answers to challenges -> https://www.youtube.com/watch?v=AIUhCdOMrmc
-
-## Download the docker image.
-This is a pre-build image of the main content at https://github.com/juice-shop/juice-shop
-```
-docker pull bkimminich/juice-shop
-```
-
-## Run the image
-```
-docker run --rm -e "NODE_ENV=ctf" -p 3000:3000 bkimminich/juice-shop
-```
-> Open a browser to http://localhost:3000 to view the site.
 
 # Import the Challenge definition
 * This will import the .zip file created previously into the Scoreboard system.
