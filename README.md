@@ -45,6 +45,7 @@ These aren't really needed here as docker-compose will do it for us if we ommit 
 sudo docker pull nginx:stable
 sudo docker pull mariadb:10.4.12
 sudo docker pull redis:4
+sudo docker pull bkimminich/juice-shop
 ```
 
 ## Create a secret key
