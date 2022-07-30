@@ -74,7 +74,7 @@ sudo docker-compose up
 * For "Mode" choose "User"
 * For "Administration" enter "admin" for the username, "admin@admin.admin" for the email & "admin" for the password.
 
-> Configuration of the scoreboard ctfd is now complete. Move onto Install the "Juice Shop".
+> Configuration of the scoreboard ctfd is now complete. Move onto "Import the Challeng definition".
 
 ## The following are useful if you need to reset the score system 
 ### Stop the service
