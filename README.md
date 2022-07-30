@@ -42,9 +42,9 @@ sudo chmod +x /usr/local/bin/docker-compose
 ## Pre-pull all the images needed
 These aren't really needed here as docker-compose will do it for us if we ommit them here.
 ```
-docker pull nginx:stable
-docker pull mariadb:10.4.12
-docker pull redis:4
+sudo docker pull nginx:stable
+sudo docker pull mariadb:10.4.12
+sudo docker pull redis:4
 ```
 
 ## Create a secret key
@@ -56,11 +56,11 @@ head -c 64 /dev/urandom > .ctfd_secret_key
 ## Start the service up in "interactive" mode
 This will allow you to watch all the output & errors from the containers in real time.
 ```
-docker-compose up
+sudo docker-compose up
 ```
-> Wait about 2 minutes as it take time for the various containers to start and for database tables and caches to be initialized and for the nginx proxy to start.
+> Wait about 5 minutes as it take time for the various containers to start and for database tables and caches to be initialized and for the nginx proxy to start.
 > 
-> You should now be able to access the service on http://localhost:8000
+> Once complete, should now be able to access the Scoreboard service on http://localhost:8000
 > 
 > The result should look like this:
 
