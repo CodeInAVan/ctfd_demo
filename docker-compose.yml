@@ -12,6 +12,7 @@ services:
     networks:
         default:
 
+
   ctfd:
     build: .
     user: root
