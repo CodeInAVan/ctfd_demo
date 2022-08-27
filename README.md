@@ -1,7 +1,6 @@
 There are three steps to installing this application
-1. Install the Scoreboard system (aka ctfd.io)
+1. Spin up the Scoreboard system (aka ctfd.io) and challenge servers via docker-compose
 2. Import the challenges into the CTFd platform
-3. Spin up the challenge servers using docker-compose
 
 * This guide assumes you are instllating into a newly installed Debian based ditro such as Ubuntu.
 * The repository contains both the setup guide (the ReadMe you are reading now) and the actual software for the installation.
