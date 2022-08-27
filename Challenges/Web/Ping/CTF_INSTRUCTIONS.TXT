@@ -1,0 +1,39 @@
+
+LFI with a couple of input restrictions.
+
+At it's simplest, &ls or &id will show that command execution is possible.
+
+Using ls shows the files in the current dir, but spaces and slashes are blocked.
+
+So this won't reveal the hidden administrator dir
+
+Also the number of available chars is limited to 15
+
+One way to overcome this is using find on it's own e.g. &find 
+
+This will reveal the hidden dir
+
+Another technique to overcome no spaces is brace expressions e.g.
+
+&{ls,-a}
+&{cat,*}
+
+At this point it is possible to view the php page in browser, now we know the URL.
+However, the page only has a message, identifying that the flag was commented out.
+
+Now it is possible to get the source code for the php file and get the flag with grep and within the tight character limit:
+
+&{grep,-r,.}
+
+
+
+
+HINT:
+
+What can you Find? Brace yourself for Expressions. Get ready for Grep!
+
+
+
+
+
+

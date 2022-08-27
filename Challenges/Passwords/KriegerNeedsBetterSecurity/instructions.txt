@@ -1,0 +1,8 @@
+You have been tasked with gaining access to the secure area of a website
+run by the infamous "Sterling Archer".
+
+The login page can be found here: <ip>/index.php
+
+A fellow hacker has found some information which may help you in your efforts:
+
+<ip>/dump.tar.gz

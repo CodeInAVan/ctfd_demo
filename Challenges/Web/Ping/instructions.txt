@@ -1,0 +1,3 @@
+A shiny new web interface for the classic tool, ping. It uses sophisticated checks to prevent abuse.
+
+<IP Address>/Ping/index.php
