@@ -1,10 +1,10 @@
 There are three steps to installing this application
 1. Install the Scoreboard system (aka ctfd.io)
-1. Install the buggy website that students will attack (aka The Juice Shop Challenges)
-1. Import into the Scoreboard the information about each of the bugs for users to choose a challenge.
+2. Import the challenges into the CTFd platform
+3. Spin up the challenge servers using docker-compose
 
 * This guide assumes you are instllating into a newly installed Debian based ditro such as Ubuntu.
-* The repository contains both the setup guide (the ReadMe you are reading now) and the actual software for the installation. 
+* The repository contains both the setup guide (the ReadMe you are reading now) and the actual software for the installation.
 
 # Clone the Repo to your new Linux box.
 ```
@@ -39,15 +39,6 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
-## Pre-pull all the images needed
-These aren't really needed here as docker-compose will do it for us if we ommit them here.
-```
-sudo docker pull nginx:stable
-sudo docker pull mariadb:10.4.12
-sudo docker pull redis:4
-sudo docker pull bkimminich/juice-shop
-```
-
 ## Create a secret key
 This is used as a salt for the generated flags to make them unique to this installation.
 ```
@@ -60,23 +51,17 @@ This will allow you to watch all the output & errors from the containers in real
 sudo docker-compose up
 ```
 > Wait about 5 minutes as it takes time for the various containers to start and for database tables and caches to be initialized and for the nginx proxy to start.
-> 
-> Once complete, should now be able to access the Scoreboard service on http://localhost:8000
 >
-> Open a browser to http://localhost:3000 to view buggy Juice Shop challenges site.
-> 
-> The result should look like this:
+> Once complete, should now be able to access the Scoreboard service on http://localhost:8000
 
-![Screenshot showing Initial Setup ](/images/setup.png 'Initial Setup')
+# Import the Challenge definition
+* This will import the .zip file created previously into the Scoreboard system.
+* It contains the information about all the bugs in the Juice Shop site.
+* Provides a menu of different challenges to select from inside the scoreboard system - the only downside the challenges don't have URLs provided :(
 
-## Configure the Service
-* Enter an "Event Name" of "Training".
-* For "Mode" choose "User"
-* For "Administration" enter "admin" for the username, "admin@admin.admin" for the email & "admin" for the password.
+1. Open the browser to the ctfd homepage (http://localhost or http://localhost:8000), then browse to Config ->  Backup -> Import and select the `CTFd-2022-XXXXXX.zip` file from the root of the `juiceboxctf` folder.
 
-> Configuration of the scoreboard ctfd is now complete. Move onto "Import the Challeng definition".
-
-## The following are useful if you need to reset the score system 
+## The following are useful if you need to reset the score system
 ### Stop the service
 * A simple ctrl-C in the terminal from where you ran "docker-compose up" will stop all containers.
 * Use "docker-compose up" to re-start everything again.
@@ -90,18 +75,3 @@ sudo docker rm -f $(docker ps -a -q)
 sudo docker volume prune
 rmdir .data
 ```
-
-# Import the Challenge definition
-* This will import the .zip file created previously into the Scoreboard system.
-* It contains the information about all the bugs in the Juice Shop site.
-* Provides a menu of different challenges to select from inside the scoreboard system - the only downside the challenges don't have URLs provided :( 
-
-1. Open the browser to the ctfd homepage (http://localhost or http://localhost:8000), then browse to Config ->  Backup -> Import and select `OWASP.zip` file from the root of the `juiceboxctf` folder. 
- 
-* Once the data is imported, you should see the following:
-
-![Screenshot showing imported challenged](/images/importedchallenges.png 'Imported challenges')
-
-# References
-* https://docs.ctfd.io/docs/deployment/installation
-* Setup Guide for AWS - https://www.doyler.net/security-not-included/owasp-juice-shop-ctfd
