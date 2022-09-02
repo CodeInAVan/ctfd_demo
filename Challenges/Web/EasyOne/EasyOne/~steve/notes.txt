@@ -1,0 +1,5 @@
+[2016-05-01] Week checklist
+- Improve login system
+- Disable 'test' accounts
+- Get milk
+- Find easy flag in robots.txt: flag{R0B0T_AP0C4LYP53}

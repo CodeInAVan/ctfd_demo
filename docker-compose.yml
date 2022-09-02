@@ -1,18 +1,6 @@
 version: '2'
 
 services:
-  juice-shop-challenges:
-    image: bkimminich/juice-shop
-    user: root
-    restart: always
-    ports:
-      - "3000:3000"
-    environment:
-      - NODE_ENV=ctf
-    networks:
-        default:
-
-
   ctfd:
     build: .
     user: root
@@ -70,6 +58,73 @@ services:
     - .data/redis:/data
     networks:
         internal:
+
+  alphatesting:
+    build: ./Challenges/Web/AlphaTesting
+    container_name: alphatesting
+    restart: always
+    ports:
+      - 8080:80
+  easyone:
+      build: ./Challenges/Web/EasyOne
+      container_name: easyone
+      restart: always
+      ports:
+          - 8081:80
+  ping:
+      build: ./Challenges/Web/Ping
+      container_name: ping
+      restart: always
+      ports:
+        - 8082:80
+  rememberthename:
+      build: ./Challenges/Web/RememberTheName
+      container_name: rememberthename
+      restart: always
+      ports:
+        - 8083:80
+  simpleweblogin:
+      build: ./Challenges/Web/SimpleWebLogin
+      container_name: simpleweblogin
+      restart: always
+      ports:
+        - 8084:80
+  kriegerneedsbettersecurity:
+      build: ./Challenges/Passwords/KriegerNeedsBetterSecurity
+      container_name: kriegerneedsbettersecurity
+      restart: always
+      ports:
+        - 8085:80
+  twohastobebetterthanone:
+      build: ./Challenges/Passwords/TwoHasToBeBetterThanOne
+      container_name: twohastobebetterthanone
+      restart: always
+      ports:
+        - 8086:80
+  querystrings:
+      build: ./Challenges/Reversing/QueryStrings
+      container_name: querystrings
+      restart: always
+      ports:
+        - 8087:80
+  timetrial:
+      build: ./Challenges/Network/TimeTrial
+      container_name: timetrial
+      restart: always
+      ports:
+        - 8088:80
+  speedround:
+      build: ./Challenges/Network/SpeedRound
+      container_name: speedround
+      restart: always
+      ports:
+        - 10001:10001
+  ellipsis:
+      build: ./Challenges/Network/Ellipsis
+      container_name: ellipsis
+      restart: always
+      ports:
+        - 8095:80
 
 networks:
     default:

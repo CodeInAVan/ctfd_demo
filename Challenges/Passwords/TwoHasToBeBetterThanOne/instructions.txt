@@ -1,0 +1,7 @@
+You have been tasked with gaining access to another secure website area:
+
+The login page can be found here: <ip>/index.php
+
+A fellow hacker has found some information which may help you in your efforts:
+
+<ip>/files.tar.gz
