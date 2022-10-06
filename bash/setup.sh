@@ -3,8 +3,8 @@ apt-get install git net-tools -y
 mkdir /usr/local/cftdemo
 cd /usr/local/cftdemo
 
-git clone https://github.com/UKNorthernlad/juiceboxctf/
-cd juiceboxctf
+git clone https://github.com/CodeInAVan/ctfd_demo
+cd ctfd_demo
 
 apt-get update -y
 apt-get install -y apt-transport-https ca-certificates curl gnupg lsb-release
@@ -29,6 +29,10 @@ docker pull bkimminich/juice-shop
 
 # create secret
 head -c 64 /dev/urandom > .ctfd_secret_key
+
+# run certbot init
+chmod +x init-letsencrypt.sh
+./init-letsencrypt.sh
 
 # run the containers
 docker-compose up -d
