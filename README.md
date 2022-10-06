@@ -74,3 +74,8 @@ sudo docker rm -f $(docker ps -a -q)
 sudo docker volume prune
 rmdir .data
 ```
+
+### SSL config
+based on these notes https://pentacent.medium.com/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71
+SSL enabled using self renewing LetsEncrypt Certificate.
+

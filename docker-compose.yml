@@ -38,7 +38,9 @@ services:
       - 443:443
     depends_on:
       - ctfd
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
 
+# https://pentacent.medium.com/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71
   certbot:
     image: certbot/certbot
     volumes:
@@ -46,6 +48,7 @@ services:
       - ./data/certbot/www:/var/www/certbot
     depends_on:
       - nginx
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
 
   db:
     image: mariadb:10.4.12
