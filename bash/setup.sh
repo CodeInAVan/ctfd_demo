@@ -31,8 +31,8 @@ docker pull bkimminich/juice-shop
 head -c 64 /dev/urandom > .ctfd_secret_key
 
 # run certbot init
-chmod +x init-letsencrypt.sh
-./init-letsencrypt.sh
+sudo chmod +x init-letsencrypt.sh
+sudo ./init-letsencrypt.sh
 
 # run the containers
 docker-compose up -d
