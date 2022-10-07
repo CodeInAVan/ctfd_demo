@@ -30,7 +30,9 @@ services:
     image: nginx:stable
     restart: always
     volumes:
-      - ./conf/nginx/http.conf:/etc/nginx/nginx.conf
+      # for https swap to https.conf and edit this file for url domain
+      #- ./conf/nginx/http.conf:/etc/nginx/nginx.conf
+      - ./conf/nginx/https.conf:/etc/nginx/nginx.conf      
       - ./data/certbot/conf:/etc/letsencrypt
       - ./data/certbot/www:/var/www/certbot
     ports:
@@ -38,7 +40,8 @@ services:
       - 443:443
     depends_on:
       - ctfd
-    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+    # this command installs new https certs 
+    command: "/bin/sh -c 'while :; do sleep 24h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
 
 # https://pentacent.medium.com/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71
   certbot:
@@ -48,6 +51,7 @@ services:
       - ./data/certbot/www:/var/www/certbot
     depends_on:
       - nginx
+    # certbot cert renew every 12 hours.
     entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
 
   db:

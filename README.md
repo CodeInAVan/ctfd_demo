@@ -77,5 +77,16 @@ rmdir .data
 
 ### SSL config
 based on these notes https://pentacent.medium.com/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71
-SSL enabled using self renewing LetsEncrypt Certificate.
 
+SSL enabled using self renewing LetsEncrypt Certificate, this only works if the site is hosted on a valid DNS name when deployed so the url can be reached for validation (http:/{hostname}/.well-known/acme-challenge/).
+
+The script init-letsencrypt.sh creates initial cert for https to allow nginx to start, then forces a new cert from letencrypt using the certbot container.
+
+To enable SSL change docker-compose.yml nginx to use the https.conf file and edit the file to set the domain of the site. Replace domain name "cyberchallenges.uk" with your domain.
+
+see bash/setup_https.sh for adjustments for https, running these extra commans to create the first cert, start nginx and then issue the valid certificate.
+
+```
+sudo chmod +x init-letsencrypt.sh
+sudo ./init-letsencrypt.sh
+```

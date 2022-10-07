@@ -30,6 +30,10 @@ docker pull bkimminich/juice-shop
 # create secret
 head -c 64 /dev/urandom > .ctfd_secret_key
 
+# run certbot init to enable https (make sure docker-compose installs the https.conf and edit that file to match the domain being used)
+sudo chmod +x init-letsencrypt.sh
+sudo ./init-letsencrypt.sh
+
 # run the containers
 docker-compose up -d
 
