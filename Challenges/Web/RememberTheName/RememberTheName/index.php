@@ -1,5 +1,5 @@
 <?php
-	$cookie_name = "Warwick-CTF";
+	$cookie_name = "Belfast-CTF";
 
 	if(isset($_COOKIE[$cookie_name])) {
 		header("Location: /auth.php");

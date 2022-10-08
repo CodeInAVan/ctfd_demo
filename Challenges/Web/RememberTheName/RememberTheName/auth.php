@@ -12,7 +12,7 @@ $REGISTERED = <<<FINISHED
 
 FINISHED;
 
-$cookie_name = "Warwick-CTF";
+$cookie_name = "Belfast-CTF";
 
 if(isset($_COOKIE[$cookie_name])) {
     if ($_COOKIE[$cookie_name] == "admin" ){

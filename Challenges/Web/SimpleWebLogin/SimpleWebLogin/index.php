@@ -16,7 +16,7 @@ $HTML = <<<FINISH
 		<form name="login" action="index.php" method="post" accept-charset="utf-8">
 			<ul>
 				<li>
-					<label for="usermail">Email</label>
+					<label for="username">Username</label>
 					<input type="name" name="username" placeholder="Username" required>
 				</li>
 				<li>
