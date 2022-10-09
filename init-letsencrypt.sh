@@ -5,7 +5,7 @@ if ! [ -x "$(command -v docker-compose)" ]; then
   exit 1
 fi
 
-domains=(cyberchallenges.uk www.cyberchallenges.uk)
+domains=(cyberchallenges.uk  www.cyberchallenges.uk www1.cyberchallenges.uk)
 rsa_key_size=4096
 data_path="./data/certbot"
 email="matthew@rawles.co.uk" # Adding a valid address is strongly recommended
