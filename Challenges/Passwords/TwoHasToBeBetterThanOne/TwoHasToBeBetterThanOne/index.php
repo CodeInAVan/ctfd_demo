@@ -37,7 +37,7 @@ $WIN = "flag{1m_RuNN1nG_0uT_0F_w1tTy_Fl4g_n4M3s}";
 
 
 if (!empty($_POST)) {
-	if (($_POST["username"] == "SterlingArcher") && ($_POST["bobbytables"] == "123monkey")) {
+	if (($_POST["Password"] == "123monkey")) {
 		echo $WIN;
 	} else {
 		echo $HTML;
