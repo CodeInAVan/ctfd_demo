@@ -17,7 +17,7 @@ services:
         container_name: ping
         restart: always
         ports:
-          - 8082:80
+          - 8apt-get 082:80
     rememberthename:
         build: ./Web/RememberTheName
         container_name: rememberthename
