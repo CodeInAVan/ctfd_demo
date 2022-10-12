@@ -2,8 +2,9 @@ There are three steps to installing this application
 1. Spin up the Scoreboard system (aka ctfd.io) and challenge servers via docker-compose
 2. Import the challenges into the CTFd platform
 
-* This guide assumes you are instllating into a newly installed Debian based ditro such as Ubuntu.
+* This guide assumes you are installing into a newly installed Debian based ditro such as Ubuntu.
 * The repository contains both the setup guide (the ReadMe you are reading now) and the actual software for the installation.
+* The repo has an http and https version of the nginx code, the https version needs a valid host name and dns setup for letencrypt certs (see notes below)
 
 # Clone the Repo to your new Linux box.
 ```
@@ -75,7 +76,20 @@ sudo docker volume prune
 rmdir .data
 ```
 
-### SSL config
+### HTTP config
+
+in docker-compose.yml these lines control which conf file is used, change the source file to switch back to http only
+```
+  nginx:
+    image: nginx:stable
+    restart: always
+    volumes:
+      # for https swap to https.conf and edit this file for url domain
+      - ./conf/nginx/http.conf:/etc/nginx/nginx.conf
+      # - ./conf/nginx/https.conf:/etc/nginx/nginx.conf 
+```
+
+### HTTPS config
 based on these notes https://pentacent.medium.com/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71
 
 SSL enabled using self renewing LetsEncrypt Certificate, this only works if the site is hosted on a valid DNS name when deployed so the url can be reached for validation (http:/{hostname}/.well-known/acme-challenge/).
@@ -90,3 +104,4 @@ see bash/setup_https.sh for adjustments for https, running these extra commans t
 sudo chmod +x init-letsencrypt.sh
 sudo ./init-letsencrypt.sh
 ```
+
