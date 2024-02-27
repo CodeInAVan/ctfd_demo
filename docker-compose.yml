@@ -32,7 +32,9 @@ services:
     volumes:
       # for https swap to https.conf and edit this file for url domain
       #- ./conf/nginx/http.conf:/etc/nginx/nginx.conf
-      - ./conf/nginx/https.conf:/etc/nginx/nginx.conf      
+      # basic conf for http testing
+      - ./conf/nginx/http_basic.conf:/etc/nginx/nginx.conf
+      #- ./conf/nginx/https.conf:/etc/nginx/nginx.conf      
       - ./data/certbot/conf:/etc/letsencrypt
       - ./data/certbot/www:/var/www/certbot
     ports:
